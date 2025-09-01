@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import DefaultLayout from "./layouts/DefaultLayout"
-import PlantsList from "./components/PlantsList"
+import PlantsList from "./pages/PlantsList"
 
 function App() {
 
