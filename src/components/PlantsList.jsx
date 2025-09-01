@@ -11,6 +11,12 @@ function PlantsList() {
     //variabile di stato per categoria
     const [category, setCategory] = useState('');
 
+    //variabile di stato per ordinamento in ordine alfabetico
+    const [sortedList, setSortedList] = useState(true);
+
+    //variabile di stato per ordinare in base a 'title' o 'category'
+    const [sortField, setSortField] = useState('title');
+
     useEffect(() => {
         // funzione per ottenere i data dall'API
         const plantsFetch = async () => {
@@ -44,6 +50,16 @@ function PlantsList() {
     }
         , [plantTitle, category]);
 
+
+    //funzione per ordinare la lista in ordine alfabetico
+    function handleSort(field) {
+        const sortedPlants = [...list].sort((a, b) => sortedList ? a[field].localeCompare(b[field]) : b[field].localeCompare(a[field]));
+
+        setList(sortedPlants);
+        setSortedList(!sortedList);
+        setSortField(field);
+    }
+
     return (
         <>
             <h1>Le piante verdi più comuni!</h1>
@@ -62,6 +78,12 @@ function PlantsList() {
                 <option value="Piante da interno">Piante da interno</option>
                 <option value="Piante grasse">Piante grasse</option>
             </select>
+
+            {/* bottone per ordinare la lista in ordine alfabetico e viceversa per title*/}
+            <button onClick={() => handleSort('title')}>Ordina per titolo: ({sortField === 'title' ? (sortedList ? 'A - z' : 'Z - a') : 'A - z'})</button>
+
+            {/* bottone per ordinare la lista in ordine alfabetico e viceversa per category*/}
+            <button onClick={() => handleSort('category')}>Ordina per categoria: ({sortField === 'category' ? (sortedList ? 'A - z' : 'Z - a') : 'A - z'})</button>
 
             <ul>
                 {list.map(plant => <li key={plant.id}>
