@@ -10,8 +10,9 @@ function App() {
         <Routes>
           {/* pagine principali dell'App */}
           <Route element={<DefaultLayout />}>
-            <Route path="/" element={<p>'Home'</p>} />
-            <Route path="/plant/:id" element={<p>'Dettaglio'</p>} />
+            <Route path="/" element={<p>Home</p>} />
+            <Route path="/plant/:id" element={<p>Dettaglio</p>} />
+            <Route path="/preferiti" element={<p>Preferiti</p>} />
           </Route>
 
           {/* route per la pagina Not Found  */}
