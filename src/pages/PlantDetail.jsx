@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import PlantCardDetail from "../components/PlantCardDetail";
 
 function PlantDetail() {
@@ -9,6 +9,9 @@ function PlantDetail() {
 
     //variabile di stato per rappresentare i dettagli di una pianta
     const [plant, setPlant] = useState([]);
+
+    //salvo useNavigate in una variabile per tornare alla pagina precedente
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -29,6 +32,7 @@ function PlantDetail() {
     return (
         <>
             <PlantCardDetail data={plant} />
+            <button onClick={() => navigate(-1)}>Torna indietro</button>
         </>
     )
 }
