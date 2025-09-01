@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import PlantCard from "../components/PlantCard";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function PlantsList() {
 
@@ -18,6 +18,12 @@ function PlantsList() {
 
     //variabile di stato per ordinare in base a 'title' o 'category'
     const [sortField, setSortField] = useState('title');
+
+    //variabile di stato per la selezione di due elementi da comparare
+    const [selectedPlants, setSelectedPlants] = useState([]);
+
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         // funzione per ottenere i data dall'API
@@ -62,6 +68,29 @@ function PlantsList() {
         setSortField(field);
     }
 
+    //funzione per la selezione di due piante
+    function handleSelect(plant) {
+        setSelectedPlants(prev => {
+            if (prev.find(p => p.id === plant.id)) {
+                return prev.filter(p => p.id !== plant.id)
+            }
+
+            if (prev.length < 2) {
+                return [...prev, plant];
+            };
+
+            return prev;
+        })
+    };
+
+    //funzione per passare alla pagina di comparazione con il btn
+    function handleCompare() {
+        if (selectedPlants.length === 2) {
+            const ids = selectedPlants.map(p => p.id);
+            navigate('/confronta-le-piante', { state: { ids } })
+        }
+    }
+
     return (
         <>
             <h1>Le piante verdi più comuni!</h1>
@@ -87,12 +116,18 @@ function PlantsList() {
             {/* bottone per ordinare la lista in ordine alfabetico e viceversa per category*/}
             <button onClick={() => handleSort('category')}>Ordina per categoria: ({sortField === 'category' ? (sortedList ? 'A - z' : 'Z - a') : 'A - z'})</button>
 
+            {/* bottone per andare alla pagina di comparazione */}
+            <button onClick={handleCompare} disabled={selectedPlants.length !== 2}>Confronta!</button>
+
             <ul>
                 {list.map(plant =>
                     <li key={plant.id}>
-                        <Link to={`/plant/${plant.id}`}>
-                            <PlantCard key={plant.id} data={plant} />
-                        </Link>
+                        <PlantCard
+                            data={plant}
+                            onSelect={handleSelect}
+                            isSelected={selectedPlants.some(p => p.id === plant.id)}
+                        />
+
                     </li>
                 )}
             </ul>

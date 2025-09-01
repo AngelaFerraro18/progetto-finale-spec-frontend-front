@@ -1,5 +1,5 @@
 function PlantCardDetail({ data }) {
-
+    console.log(data);
     const { title, category, description, sunlight, watering, careLevel, scientificName, temperature, humidity, fertilizer, growthRate, maxHeight, toxicity } = data;
 
     return (
