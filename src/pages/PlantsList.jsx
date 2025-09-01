@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import PlantCard from "../components/PlantCard";
+import { Link } from "react-router-dom";
 
 function PlantsList() {
 
@@ -86,10 +88,13 @@ function PlantsList() {
             <button onClick={() => handleSort('category')}>Ordina per categoria: ({sortField === 'category' ? (sortedList ? 'A - z' : 'Z - a') : 'A - z'})</button>
 
             <ul>
-                {list.map(plant => <li key={plant.id}>
-                    <h4>{plant.title}</h4>
-                    <p>{plant.category}</p>
-                </li>)}
+                {list.map(plant =>
+                    <li key={plant.id}>
+                        <Link to={`/plant/${plant.id}`}>
+                            <PlantCard key={plant.id} data={plant} />
+                        </Link>
+                    </li>
+                )}
             </ul>
         </>
     )
