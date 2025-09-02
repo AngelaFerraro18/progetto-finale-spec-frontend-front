@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import PlantCardDetail from "../components/PlantCardDetail";
 import { useState, useEffect } from "react";
+import { useFavorites } from "../context/FavouritesContext";
 
 function ComparePlants() {
 
@@ -9,6 +10,10 @@ function ComparePlants() {
     const ids = location.state?.ids ?? [];
     const [plants, setPlants] = useState([]);
     console.log('Id passati:', ids);
+
+    //gestione dei preferiti
+    const { favorites, toggleFavorite } = useFavorites();
+
 
     useEffect(() => {
 
@@ -46,7 +51,11 @@ function ComparePlants() {
     return (
         <div>
             <h2>Confronta le piante</h2>
-            {plants.length > 0 ? plants.map((p, index) => <PlantCardDetail key={p.id ?? index} data={p} />) : <p>Comparatore vuoto!</p>}
+            {plants.length > 0 ? plants.map((p, index) => <PlantCardDetail key={p.id ?? index}
+                data={p}
+                isFavorite={favorites.some(fav => p.id === fav.id)}
+                onToggleFavorite={toggleFavorite}
+            />) : <p>Comparatore vuoto!</p>}
             <button onClick={() => navigate(-1)}>Torna indietro</button>
         </div>
     )

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import PlantCardDetail from "../components/PlantCardDetail";
+import { useFavorites } from "../context/FavouritesContext";
 
 function PlantDetail() {
 
@@ -12,6 +13,9 @@ function PlantDetail() {
 
     //salvo useNavigate in una variabile per tornare alla pagina precedente
     const navigate = useNavigate();
+
+    //gestione dei preferiti
+    const { favorites, toggleFavorite } = useFavorites();
 
 
     useEffect(() => {
@@ -31,7 +35,10 @@ function PlantDetail() {
 
     return (
         <>
-            <PlantCardDetail data={plant} />
+            <PlantCardDetail data={plant}
+                isFavorite={favorites.some(p => p.id === plant.id)}
+                onToggleFavorite={toggleFavorite}
+            />
             <button onClick={() => navigate(-1)}>Torna indietro</button>
         </>
     )

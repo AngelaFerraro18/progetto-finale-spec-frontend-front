@@ -1,5 +1,5 @@
-function PlantCardDetail({ data }) {
-    console.log(data);
+function PlantCardDetail({ data, onToggleFavorite, isFavorite, }) {
+
     const { title, category, description, sunlight, watering, careLevel, scientificName, temperature, humidity, fertilizer, growthRate, maxHeight, toxicity } = data;
 
     return (
@@ -17,6 +17,11 @@ function PlantCardDetail({ data }) {
             <p>Altezza massima: {maxHeight} cm</p>
             <p>Difficoltà di gestione: {careLevel}</p>
             <p>E' una pianta tossica? : {toxicity ? 'Sì o.o' : 'No :-)'}</p>
+
+            {/* pulsantino per aggiungere l'elemento ai preferiti */}
+            <button onClick={() => onToggleFavorite(data)}>
+                {isFavorite ? 'Rimuovi dai preferiti' : 'Aggiungi ai preferiti'}
+            </button>
         </div>
     )
 }
