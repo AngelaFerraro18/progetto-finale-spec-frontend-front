@@ -109,39 +109,46 @@ function PlantsList() {
 
     return (
         <>
-            <h1>Le piante verdi più comuni!</h1>
+            <h1 className="plant-list-title">Le piante verdi più comuni!</h1>
+            <div className="filters-container">
+                <div>
 
-            {/* campo per la ricerca tramite title  */}
-            <input type="text"
-                placeholder="Cerca per nome..."
-                value={plantTitle}
-                onChange={e => setPlantTitle(e.target.value)}
-            />
+                    {/* campo per la ricerca tramite title  */}
+                    <input type="text"
+                        placeholder="Cerca per nome..."
+                        value={plantTitle}
+                        onChange={e => setPlantTitle(e.target.value)}
+                    />
 
-            {/* select per filtrare le piante per categoria */}
-            <select value={category} onChange={e => setCategory(e.target.value)}>
-                <option value="">Filtra per categoria:</option>
-                <option value="Piante da esterno">Piante da esterno</option>
-                <option value="Piante da interno">Piante da interno</option>
-                <option value="Piante grasse">Piante grasse</option>
-            </select>
+                    {/* select per filtrare le piante per categoria */}
+                    <select value={category} onChange={e => setCategory(e.target.value)}>
+                        <option value="">Filtra per categoria:</option>
+                        <option value="Piante da esterno">Piante da esterno</option>
+                        <option value="Piante da interno">Piante da interno</option>
+                        <option value="Piante grasse">Piante grasse</option>
+                    </select>
 
-            {/* bottone per ordinare la lista in ordine alfabetico e viceversa per title*/}
-            <button onClick={() => handleSort('title')}>Ordina per titolo: ({sortField === 'title' ? (sortedList ? 'A - z' : 'Z - a') : 'A - z'})</button>
+                    {/* bottone per andare alla pagina di comparazione */}
+                    <button onClick={handleCompare} >{selectedPlants.length < 1
+                        ? 'Comparatore vuoto'
+                        : selectedPlants.length === 1
+                            ? `Aggiungi un altro elemento! (${selectedPlants.length})`
+                            : `Vai al comparatore! (${selectedPlants.length})`}</button>
+                </div>
 
-            {/* bottone per ordinare la lista in ordine alfabetico e viceversa per category*/}
-            <button onClick={() => handleSort('category')}>Ordina per categoria: ({sortField === 'category' ? (sortedList ? 'A - z' : 'Z - a') : 'A - z'})</button>
 
-            {/* bottone per andare alla pagina di comparazione */}
-            <button onClick={handleCompare} >{selectedPlants.length < 1
-                ? 'Comparatore vuoto'
-                : selectedPlants.length === 1
-                    ? `Aggiungi un altro elemento! (${selectedPlants.length})`
-                    : `Vai al comparatore! (${selectedPlants.length})`}</button>
+                <div>
+                    {/* bottone per ordinare la lista in ordine alfabetico e viceversa per title*/}
+                    <button onClick={() => handleSort('title')}>Ordina per titolo: ({sortField === 'title' ? (sortedList ? 'A - z' : 'Z - a') : 'A - z'})</button>
 
-            <ul>
+                    {/* bottone per ordinare la lista in ordine alfabetico e viceversa per category*/}
+                    <button onClick={() => handleSort('category')}>Ordina per categoria: ({sortField === 'category' ? (sortedList ? 'A - z' : 'Z - a') : 'A - z'})</button>
+                </div>
+            </div>
+
+            <ul className="plant-list-display">
                 {list.length > 0 ? (list.map(plant =>
-                    <li key={plant.id}>
+                    <li className="plant-list-el" key={plant.id}>
                         <PlantCard
                             data={plant}
                             onSelect={handleSelect}

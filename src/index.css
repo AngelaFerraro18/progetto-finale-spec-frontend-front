@@ -1,0 +1,179 @@
+/* Reset */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+/* header */
+
+header {
+    padding: 10px 0;
+    background-color: #588157;
+    margin-bottom: 50px;
+}
+
+.logo-header {
+    width: 120px;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* main  */
+
+.container {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+/* plant-list */
+
+.plant-list-title {
+    margin-bottom: 20px;
+}
+
+.filters-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.plant-list-display {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.plant-list-el {
+    width: 100% / 2;
+    background-color: blueviolet;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+}
+
+/* plant-card */
+
+.favorite-img {
+    width: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+.card-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.card-category {
+    margin-bottom: 15px;
+}
+
+.checkbox-container {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* media query */
+
+
+/* plant-card  */
+
+@media (min-width: 768px) {
+    .plant-list-el {
+        width: ((100% - 30px) / 3);
+    }
+}
+
+
+@media(min-width: 992px) {
+    .plant-list-el {
+        width: calc((100% - 45px) / 4);
+    }
+}

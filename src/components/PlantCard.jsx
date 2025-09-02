@@ -8,22 +8,28 @@ function PlantCard({ data, isSelected, onSelect, onToggleFavorite, isFavorite, s
     return (
         <>
             <Link to={`/plant/${id}`}>
-                <h4>{title}</h4>
-                <p>{category}</p>
+                <h4 className="card-title">{title}</h4>
+                <p className="card-category">Categoria: {category}</p>
             </Link>
 
             {/* checkbox per selezionare 2 elementi da confrontare */}
-            {showSelect && (
-                <input type="checkbox"
-                    checked={isSelected}
-                    onChange={() => onSelect(data)}
-                />
-            )}
+
+            <div className="checkbox-container">
+                {showSelect && (
+                    <input type="checkbox"
+                        checked={isSelected}
+                        onChange={() => onSelect(data)}
+                    />
+                )}
+                <span>Confronta</span>
+            </div>
+
 
             {/* pulsantino per aggiungere l'elemento ai preferiti */}
-            <button onClick={() => onToggleFavorite(data)}>
-                {isFavorite ? 'Rimuovi dai preferiti' : 'Aggiungi ai preferiti'}
-            </button>
+            <img className="favorite-img" src={isFavorite ? '/icons/sprout.png' : '/icons/sprout-line.png'}
+                alt={isFavorite ? 'Rimuovi dai preferiti' : 'Aggiungi ai preferiti'}
+                onClick={() => onToggleFavorite(data)}
+            />
         </>
 
     )

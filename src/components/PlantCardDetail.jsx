@@ -19,9 +19,10 @@ function PlantCardDetail({ data, onToggleFavorite, isFavorite, }) {
             <p>E' una pianta tossica? : {toxicity ? 'Sì o.o' : 'No :-)'}</p>
 
             {/* pulsantino per aggiungere l'elemento ai preferiti */}
-            <button onClick={() => onToggleFavorite(data)}>
-                {isFavorite ? 'Rimuovi dai preferiti' : 'Aggiungi ai preferiti'}
-            </button>
+            <img className="favorite-img" src={isFavorite ? '/icons/sprout.png' : '/icons/sprout-line.png'}
+                alt={isFavorite ? 'Rimuovi dai preferiti' : 'Aggiungi ai preferiti'}
+                onClick={() => onToggleFavorite(data)}
+            />
         </div>
     )
 }
