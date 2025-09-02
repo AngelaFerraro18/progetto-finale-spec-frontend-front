@@ -46,7 +46,7 @@ function ComparePlants() {
     return (
         <div>
             <h2>Confronta le piante</h2>
-            {plants.map((p, index) => <PlantCardDetail key={p.id ?? index} data={p} />)}
+            {plants.length > 0 ? plants.map((p, index) => <PlantCardDetail key={p.id ?? index} data={p} />) : <p>Comparatore vuoto!</p>}
             <button onClick={() => navigate(-1)}>Torna indietro</button>
         </div>
     )

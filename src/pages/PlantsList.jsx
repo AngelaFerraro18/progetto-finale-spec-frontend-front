@@ -133,7 +133,11 @@ function PlantsList() {
             <button onClick={() => handleSort('category')}>Ordina per categoria: ({sortField === 'category' ? (sortedList ? 'A - z' : 'Z - a') : 'A - z'})</button>
 
             {/* bottone per andare alla pagina di comparazione */}
-            <button onClick={handleCompare} disabled={selectedPlants.length < 2}>Confronta!</button>
+            <button onClick={handleCompare} >{selectedPlants.length < 1
+                ? 'Comparatore vuoto'
+                : selectedPlants.length === 1
+                    ? `Aggiungi un altro elemento! (${selectedPlants.length})`
+                    : `Vai al comparatore! (${selectedPlants.length})`}</button>
 
             <ul>
                 {list.length > 0 ? (list.map(plant =>
