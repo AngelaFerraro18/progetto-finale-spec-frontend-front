@@ -76,20 +76,17 @@ function PlantsList() {
     function handleSelect(plant) {
         setSelectedPlants(prev => {
             if (prev.find(p => p.id === plant.id)) {
+                //se già esiste viene rimossa
                 return prev.filter(p => p.id !== plant.id)
             }
-
-            if (prev.length < 2) {
-                return [...prev, plant];
-            };
-
-            return prev;
+            //altrimenti aggiungo le piante
+            return [...prev, plant];
         })
     };
 
     //funzione per passare alla pagina di comparazione con il btn
     function handleCompare() {
-        if (selectedPlants.length === 2) {
+        if (selectedPlants.length >= 2) {
             const ids = selectedPlants.map(p => p.id);
             navigate('/confronta-le-piante', { state: { ids } })
         }
@@ -121,7 +118,7 @@ function PlantsList() {
             <button onClick={() => handleSort('category')}>Ordina per categoria: ({sortField === 'category' ? (sortedList ? 'A - z' : 'Z - a') : 'A - z'})</button>
 
             {/* bottone per andare alla pagina di comparazione */}
-            <button onClick={handleCompare} disabled={selectedPlants.length !== 2}>Confronta!</button>
+            <button onClick={handleCompare} disabled={selectedPlants.length < 2}>Confronta!</button>
 
             <ul>
                 {list.map(plant =>

@@ -13,7 +13,7 @@ function ComparePlants() {
     useEffect(() => {
 
         //se non ci sono elementi, torniamo alla home
-        if (ids.length !== 2) {
+        if (ids.length < 2) {
             navigate('/');
             return;
         }
