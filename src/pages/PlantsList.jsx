@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import PlantCard from "../components/PlantCard";
 import { useNavigate } from "react-router-dom";
+import { useFavorites } from "../context/FavouritesContext";
 
 function PlantsList() {
 
@@ -21,6 +22,9 @@ function PlantsList() {
 
     //variabile di stato per la selezione di due elementi da comparare
     const [selectedPlants, setSelectedPlants] = useState([]);
+
+    //gestione dei preferiti
+    const { favorites, toggleFavorite } = useFavorites();
 
 
     const navigate = useNavigate();
@@ -126,6 +130,9 @@ function PlantsList() {
                             data={plant}
                             onSelect={handleSelect}
                             isSelected={selectedPlants.some(p => p.id === plant.id)}
+                            isFavorite={favorites.some(p => p.id === plant.id)}
+                            onToggleFavorite={toggleFavorite}
+                            showSelect={true}
                         />
 
                     </li>

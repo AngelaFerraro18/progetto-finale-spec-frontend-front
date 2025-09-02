@@ -4,6 +4,7 @@ import PlantsList from "./pages/PlantsList"
 import PlantDetail from "./pages/PlantDetail"
 import ComparePlants from "./pages/ComparePlants"
 import { FavouritesProvider } from "./context/FavouritesContext"
+import FavoritesPlants from "./pages/FavoritesPlants"
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
             <Route element={<DefaultLayout />}>
               <Route path="/" element={<PlantsList />} />
               <Route path="/plant/:id" element={<PlantDetail />} />
-              <Route path="/preferiti" element={<p>Preferiti</p>} />
+              <Route path="/preferiti" element={<FavoritesPlants />} />
               <Route path="/confronta-le-piante" element={<ComparePlants />} />
             </Route>
 

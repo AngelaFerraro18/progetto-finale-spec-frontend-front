@@ -6,18 +6,18 @@ const FavouritesContext = createContext();
 function FavouritesProvider({ children }) {
 
     //variabile di stato per settare gli elementi preferiti
-    const [favourites, setFavourites] = useState([]);
+    const [favorites, setFavorites] = useState([]);
 
 
-    function toggleFavourite(plant) {
+    function toggleFavorite(plant) {
 
-        setFavourites(prev =>
+        setFavorites(prev =>
             prev.find(p => p.id === plant.id) ? prev.filter(p => p.id !== plant.id) : [...prev, plant]
         );
     }
 
     return (
-        <FavouritesContext.Provider value={{ favourites, toggleFavourite }}>
+        <FavouritesContext.Provider value={{ favorites, toggleFavorite }}>
             {children}
         </FavouritesContext.Provider>
     )
