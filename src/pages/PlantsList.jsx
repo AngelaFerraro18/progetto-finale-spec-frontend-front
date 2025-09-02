@@ -52,6 +52,7 @@ function PlantsList() {
             const dataPlants = await response.json();
             console.log(dataPlants);
             setList(dataPlants);
+
         } catch (error) {
             console.error('Errore nel recuperare i dati del fetch', error);
         }
@@ -135,7 +136,7 @@ function PlantsList() {
             <button onClick={handleCompare} disabled={selectedPlants.length < 2}>Confronta!</button>
 
             <ul>
-                {list.map(plant =>
+                {list.length > 0 ? (list.map(plant =>
                     <li key={plant.id}>
                         <PlantCard
                             data={plant}
@@ -147,7 +148,7 @@ function PlantsList() {
                         />
 
                     </li>
-                )}
+                )) : <p>Non è stato trovato un elemento corrispondente.</p>}
             </ul>
         </>
     )
