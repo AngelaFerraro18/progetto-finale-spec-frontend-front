@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import PlantCard from "../components/PlantCard";
 import { useNavigate } from "react-router-dom";
 import { useFavorites } from "../context/FavouritesContext";
@@ -29,38 +29,52 @@ function PlantsList() {
 
     const navigate = useNavigate();
 
-    useEffect(() => {
-        // funzione per ottenere i data dall'API
-        const plantsFetch = async () => {
+    //memoizzo il fetch con useCallback 
+    const plantsFetch = useCallback(async (search) => {
 
-            try {
+        try {
 
-                //definisco le variabili per la ricerca tramite titolo e categoria
-                const queryTitle = plantTitle ? `search=${plantTitle.toLowerCase()}` : '';
-                const queryCategory = category ? `category=${category}` : '';
+            //definisco le variabili per la ricerca tramite search(che poi sarà plantTitle) e categoria
+            const queryTitle = search ? `search=${search.toLowerCase()}` : '';
+            const queryCategory = category ? `category=${category}` : '';
 
-                //costruisco la query string in base a titolo e categoria selezionati
-                let query = '';
+            //costruisco la query string in base a titolo e categoria selezionati
+            let query = '';
 
-                if (queryTitle && queryCategory) {
-                    query = `?${queryTitle}&${queryCategory}`;
-                } else if (queryTitle || queryCategory) {
-                    query = `?${queryTitle || queryCategory}`
-                }
-
-
-                const response = await fetch(`http://localhost:3001/plants${query}`);
-                const dataPlants = await response.json();
-                console.log(dataPlants);
-                setList(dataPlants);
-            } catch (error) {
-                console.error('Errore nel recuperare i dati del fetch', error);
+            if (queryTitle && queryCategory) {
+                query = `?${queryTitle}&${queryCategory}`;
+            } else if (queryTitle || queryCategory) {
+                query = `?${queryTitle || queryCategory}`
             }
+
+
+            const response = await fetch(`http://localhost:3001/plants${query}`);
+            const dataPlants = await response.json();
+            console.log(dataPlants);
+            setList(dataPlants);
+        } catch (error) {
+            console.error('Errore nel recuperare i dati del fetch', error);
         }
-        //richiamo la funzione
-        plantsFetch();
-    }
-        , [plantTitle, category]);
+    }, [category]);
+
+    //funzione del debounce
+    function debounce(func, delay) {
+        let timer;
+        return (value) => {
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                func(value)
+            }, delay);
+        };
+    };
+
+    //fecth con il debounce applicato
+    const debouncedFetch = useCallback(debounce(plantsFetch, 500), [plantsFetch]);
+
+    //con useEffect applico il tutto per il filtro ricerca
+    useEffect(() => {
+        debouncedFetch(plantTitle);
+    }, [plantTitle, debouncedFetch]);
 
 
     //funzione per ordinare la lista in ordine alfabetico
