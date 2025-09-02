@@ -1,12 +1,20 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 
 const FavouritesContext = createContext();
 
 //context per la gestione dei preferiti
 function FavouritesProvider({ children }) {
 
-    //variabile di stato per settare gli elementi preferiti
-    const [favorites, setFavorites] = useState([]);
+    //variabile di stato per leggere gli elementi preferiti in localStorage
+    const [favorites, setFavorites] = useState(() => {
+        const storedPlants = localStorage.getItem('favorites');
+        return storedPlants ? JSON.parse(storedPlants) : [];
+    });
+
+    //ogni volta che la lista dei preferiti si aggiorna, aggiorniamo localStorage
+    useEffect(() => {
+        localStorage.setItem('favorites', JSON.stringify(favorites))
+    }, [favorites]);
 
 
     function toggleFavorite(plant) {
