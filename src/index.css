@@ -235,6 +235,33 @@ input[type="checkbox"] {
     font-size: 14.5px;
 }
 
+.detail-card .leaves-rate {
+    width: 18px;
+    display: inline-block;
+}
+
+.detail-card .leaves-rate-container {
+    display: flex;
+    gap: 10px;
+}
+
+.detail-card .toxicity-icons {
+    width: 30px;
+    display: inline-block;
+}
+
+.detail-card .toxicity-container {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.detail-card .toxicity-image-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
 /* filter-input  */
 
 .filter-input {

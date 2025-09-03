@@ -20,8 +20,20 @@ function PlantCardDetail({ data, onToggleFavorite, isFavorite, }) {
                 <li><strong>Fertilizzazione:</strong> {fertilizer}</li>
                 <li><strong>Velocità di crescita:</strong> {growthRate}</li>
                 <li><strong>Altezza massima:</strong> {maxHeight} cm</li>
-                <li><strong>Difficoltà di gestione:</strong> {careLevel}</li>
-                <li><strong>E' una pianta tossica?:</strong> {toxicity ? 'Sì o.o' : 'No :-)'}</li>
+                <li className="leaves-rate-container"><strong>Difficoltà di gestione:</strong>
+                    {/* rating di difficoltà con le foglie piene/vuote da 1 a 5 */}
+                    <div>
+                        {Array.from({ length: 5 }, (_, i) => (
+                            <img key={i} className="leaves-rate"
+                                src={i < careLevel ? "/icons/leaf-full.png" : "/icons/leaf-empty.png"}
+                                alt={i < careLevel ? "Foglia piena" : "Foglia vuota"}
+                            />
+                        ))}
+                    </div>
+                </li>
+                <li className="toxicity-container"><strong>E' una pianta tossica?:</strong> {toxicity
+                    ? <div className="toxicity-image-container">Sì <img className="toxicity-icons" src="/icons/skull.png" alt="death-plant" /></div>
+                    : <div className="toxicity-image-container">No <img className="toxicity-icons" src="/icons/nontoxic.png" alt="non-toxic-plant" /></div>}</li>
             </ul>
 
 
