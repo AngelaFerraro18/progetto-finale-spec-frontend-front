@@ -143,6 +143,7 @@ header {
 .filters-container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 40px;
 }
 
@@ -187,6 +188,14 @@ header {
 
 }
 
+/* filter-input  */
+
+.filter-input {
+    padding: 5px;
+    border: 1.5px solid #344e41;
+    border-radius: 10px;
+}
+
 
 /* footer  */
 
@@ -195,7 +204,24 @@ footer {
     padding: 50px 0;
 }
 
+/* buttons */
 
+.btn-sort-items {
+    all: unset;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #344e41;
+    font-size: 14px;
+    background-color: #588157;
+    color: #e9f5db;
+    cursor: pointer;
+}
+
+.compare-num {
+    padding: 0 5px;
+    background-color: #344e41;
+    border-radius: 50%;
+}
 
 
 

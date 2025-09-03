@@ -116,14 +116,14 @@ function PlantsList() {
                 <div>
 
                     {/* campo per la ricerca tramite title  */}
-                    <input type="text"
+                    <input className="filter-input" type="text"
                         placeholder="Cerca per nome..."
                         value={plantTitle}
                         onChange={e => setPlantTitle(e.target.value)}
                     />
 
                     {/* select per filtrare le piante per categoria */}
-                    <select value={category} onChange={e => setCategory(e.target.value)}>
+                    <select className="filter-input" value={category} onChange={e => setCategory(e.target.value)}>
                         <option value="">Filtra per categoria:</option>
                         <option value="Piante da esterno">Piante da esterno</option>
                         <option value="Piante da interno">Piante da interno</option>
@@ -131,20 +131,21 @@ function PlantsList() {
                     </select>
 
                     {/* bottone per andare alla pagina di comparazione */}
-                    <button onClick={handleCompare} >{selectedPlants.length < 1
+                    <button className="btn-sort-items" onClick={handleCompare} >{selectedPlants.length < 1
                         ? 'Comparatore vuoto'
                         : selectedPlants.length === 1
-                            ? `Aggiungi un altro elemento! (${selectedPlants.length})`
-                            : `Vai al comparatore! (${selectedPlants.length})`}</button>
+                            ? <span>Aggiungi un altro elemento! <span className="compare-num">{selectedPlants.length}</span></span>
+                            : <span>Vai al comparatore! <span className="compare-num">{selectedPlants.length}</span></span>}</button>
                 </div>
 
 
                 <div>
+                    <span>Ordina per: </span>
                     {/* bottone per ordinare la lista in ordine alfabetico e viceversa per title*/}
-                    <button onClick={() => handleSort('title')}>Ordina per titolo: ({sortField === 'title' ? (sortedList ? 'A - z' : 'Z - a') : 'A - z'})</button>
+                    <button className="btn-sort-items" onClick={() => handleSort('title')}>Titolo: ({sortField === 'title' ? (sortedList ? 'A - z' : 'Z - a') : 'A - z'})</button>
 
                     {/* bottone per ordinare la lista in ordine alfabetico e viceversa per category*/}
-                    <button onClick={() => handleSort('category')}>Ordina per categoria: ({sortField === 'category' ? (sortedList ? 'A - z' : 'Z - a') : 'A - z'})</button>
+                    <button className="btn-sort-items" onClick={() => handleSort('category')}>Categoria: ({sortField === 'category' ? (sortedList ? 'A - z' : 'Z - a') : 'A - z'})</button>
                 </div>
             </div>
 
