@@ -16,12 +16,15 @@ function PlantCard({ data, isSelected, onSelect, onToggleFavorite, isFavorite, s
 
             <div className="checkbox-container">
                 {showSelect && (
-                    <input type="checkbox"
-                        checked={isSelected}
-                        onChange={() => onSelect(data)}
-                    />
+                    <>
+                        <input type="checkbox"
+                            checked={isSelected}
+                            onChange={() => onSelect(data)}
+                        />
+                        <span>Confronta</span>
+                    </>
+
                 )}
-                <span>Confronta</span>
             </div>
 
 

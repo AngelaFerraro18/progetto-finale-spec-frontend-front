@@ -44,6 +44,7 @@ header {
     max-width: 1000px;
     width: 100%;
     margin: 0 auto;
+    padding: 0 15px;
 }
 
 
@@ -66,7 +67,7 @@ header {
 }
 
 .plant-list-el {
-    width: 100% / 2;
+    width: 100%;
     background-color: blueviolet;
     padding: 10px;
     border-radius: 10px;
@@ -165,9 +166,16 @@ header {
 
 /* plant-card  */
 
+@media (min-width: 576px) {
+    .plant-list-el {
+        width: calc((100% - 15px) / 2);
+    }
+}
+
+
 @media (min-width: 768px) {
     .plant-list-el {
-        width: ((100% - 30px) / 3);
+        width: calc((100% - 30px) / 3);
     }
 }
 
