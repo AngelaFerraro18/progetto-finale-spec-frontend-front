@@ -11,9 +11,16 @@ function Header() {
                 <div className="container header-container">
                     <img className="logo-header" src="/logo.png" alt="logo" />
 
-                    <div>
-                        <NavLink to="/">Home</NavLink>
-                        <NavLink to="/preferiti">{`Preferiti (${favorites.length})`}</NavLink>
+                    <div className="navs-container">
+                        <NavLink to="/"><span>Home</span>
+                            <img src="/icons/seeds.png" alt="home" />
+                        </NavLink>
+                        <NavLink to="/preferiti"><span>Preferiti</span>
+                            <div className="favorites-heart">
+                                {favorites.length > 0 && (<span className="favorites-num">{favorites.length}</span>)}
+                                <img src="/icons/heart-plant.png" alt="heart-plant" />
+                            </div>
+                        </NavLink>
                     </div>
                 </div>
             </header>

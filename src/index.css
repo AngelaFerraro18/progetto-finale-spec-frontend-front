@@ -66,6 +66,56 @@ header {
     justify-content: space-between;
 }
 
+.navs-container {
+    display: flex;
+    gap: 20px;
+    font-size: 20px;
+}
+
+.navs-container a {
+    color: #e9f5db;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.navs-container a img {
+    width: 35px;
+}
+
+.favorites-heart {
+    position: relative;
+}
+
+/* .favorites-num {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    color: #fff;
+
+} */
+
+.favorites-num {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #344e41;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 0 6px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    box-sizing: border-box;
+}
+
+
+
 /* main  */
 
 .container {

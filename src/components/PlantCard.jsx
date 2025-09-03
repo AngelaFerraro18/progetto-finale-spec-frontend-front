@@ -9,7 +9,7 @@ function PlantCard({ data, isSelected, onSelect, onToggleFavorite, isFavorite, s
         <>
             <Link to={`/plant/${id}`}>
                 <h4 className="card-title">{title}</h4>
-                <p className="card-category">Categoria: {category}</p>
+                <p className="card-category">Categoria: <em>{category}</em></p>
             </Link>
 
             {/* checkbox per selezionare 2 elementi da confrontare */}
