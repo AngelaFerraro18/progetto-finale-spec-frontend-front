@@ -4,18 +4,22 @@ import { useFavorites } from "../context/FavouritesContext";
 function FavoritesPlants() {
 
     //destrutturo per ottenere ciò che mi serve per la gestione dei preferiti
-    const { favorites, toggleFavorite, showSelect } = useFavorites();
+    const { favorites, toggleFavorite } = useFavorites();
 
     if (favorites.length === 0) {
-        return <p>Non hai ancora scelto nessuna pianta!</p>
+        return <div className="empty-list">
+            <p >La tua lista è vuota. </p>
+            <img src="/icons/flower.png" alt="flower" />
+        </div>
     }
 
     return (
         <>
-            <h1>Le tue piante preferite!</h1>
-            <ul>
+            <h1 className="plant-list-title">Le tue piante preferite! <img src="/icons/plant-love.png" alt="plant-love" /> </h1>
+
+            <ul className="plant-list-display">
                 {favorites.map(plant =>
-                    <li key={plant.id}>
+                    <li className="plant-list-el" key={plant.id}>
                         <PlantCard
                             data={plant}
                             isFavorite={true}

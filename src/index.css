@@ -230,6 +230,20 @@ footer {
     border-radius: 50%;
 }
 
+/* empty list  */
+
+.empty-list img {
+    width: 60px;
+}
+
+.empty-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 100px 0;
+    font-size: 20px;
+
+}
 
 
 
