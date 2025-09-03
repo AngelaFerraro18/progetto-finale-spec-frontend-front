@@ -155,7 +155,7 @@ header {
 
 .plant-list-el {
     width: 100%;
-    background-color: #a3b18a;
+    background-color: #bdcaa5;
     padding: 20px 10px;
     border-radius: 10px;
     position: relative;
@@ -193,6 +193,46 @@ input[type="checkbox"] {
     height: 15px;
     accent-color: #e5f9e0;
     cursor: pointer;
+}
+
+
+/* card-detail */
+
+.detail-card {
+    position: relative;
+    width: 320px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #bdcaa5;
+    border: 2px solid #344e41;
+    margin-bottom: 30px;
+}
+
+.detail-card h3 {
+    margin-bottom: 30px;
+}
+
+.plant-image {
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 0.5px solid #588157;
+}
+
+.detail-card h4 {
+    margin-bottom: 15px;
+}
+
+.detail-card ul>li {
+    margin-bottom: 10px;
+}
+
+.card-detail-container {
+    display: flex;
+    justify-content: center;
+}
+
+.detail-card ul li>strong {
+    font-size: 14.5px;
 }
 
 /* filter-input  */

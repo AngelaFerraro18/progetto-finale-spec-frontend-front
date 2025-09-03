@@ -1,22 +1,29 @@
 function PlantCardDetail({ data, onToggleFavorite, isFavorite, }) {
 
-    const { title, category, description, sunlight, watering, careLevel, scientificName, temperature, humidity, fertilizer, growthRate, maxHeight, toxicity } = data;
+    const { title, image, category, description, sunlight, watering, careLevel, scientificName, temperature, humidity, fertilizer, growthRate, maxHeight, toxicity } = data;
 
     return (
-        <div>
+        <div className="detail-card">
             <h3>{title}</h3>
-            <p>Nome scientifico: {scientificName}</p>
-            <p>Categoria: {category}</p>
-            <p>Descrizione: {description}</p>
-            <p>Luce: {sunlight}</p>
-            <p>Quantità d'acqua: {watering}</p>
-            <p>Temperature ideali: {temperature}</p>
-            <p>Umidità: {humidity}</p>
-            <p>Fertilizzazione: {fertilizer}</p>
-            <p>Velocità di crescita: {growthRate}</p>
-            <p>Altezza massima: {maxHeight} cm</p>
-            <p>Difficoltà di gestione: {careLevel}</p>
-            <p>E' una pianta tossica? : {toxicity ? 'Sì o.o' : 'No :-)'}</p>
+
+            <img className="plant-image" src={`/plants/${image}`} alt={title} />
+
+            <h4>Scheda della pianta:</h4>
+            <ul>
+                <li><strong>Nome scientifico:</strong> {scientificName}</li>
+                <li><strong>Categoria:</strong> {category}</li>
+                <li><strong>Descrizione:</strong> {description}</li>
+                <li><strong>Luce:</strong> {sunlight}</li>
+                <li><strong>Quantità d'acqua:</strong> {watering}</li>
+                <li><strong>Temperature ideali:</strong> {temperature}</li>
+                <li><strong>Umidità:</strong> {humidity}</li>
+                <li><strong>Fertilizzazione:</strong> {fertilizer}</li>
+                <li><strong>Velocità di crescita:</strong> {growthRate}</li>
+                <li><strong>Altezza massima:</strong> {maxHeight} cm</li>
+                <li><strong>Difficoltà di gestione:</strong> {careLevel}</li>
+                <li><strong>E' una pianta tossica?:</strong> {toxicity ? 'Sì o.o' : 'No :-)'}</li>
+            </ul>
+
 
             {/* pulsantino per aggiungere l'elemento ai preferiti */}
             <img className="favorite-img" src={isFavorite ? '/icons/sprout.png' : '/icons/sprout-line.png'}

@@ -34,13 +34,15 @@ function PlantDetail() {
 
 
     return (
-        <>
-            <PlantCardDetail data={plant}
-                isFavorite={favorites.some(p => p.id === plant.id)}
-                onToggleFavorite={toggleFavorite}
-            />
-            <button onClick={() => navigate(-1)}>Torna indietro</button>
-        </>
+        <div className="card-detail-container">
+            <div>
+                <PlantCardDetail data={plant}
+                    isFavorite={favorites.some(p => p.id === plant.id)}
+                    onToggleFavorite={toggleFavorite}
+                />
+                <button className="btn-sort-items" onClick={() => navigate(-1)}>Torna indietro</button>
+            </div>
+        </div>
     )
 }
 
