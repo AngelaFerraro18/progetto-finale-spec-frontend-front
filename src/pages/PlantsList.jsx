@@ -109,7 +109,9 @@ function PlantsList() {
 
     return (
         <>
-            <h1 className="plant-list-title">Le piante verdi più comuni!</h1>
+            <h1 className="plant-list-title">Le piante verdi più comuni!
+                <img src="/icons/plant.png" alt="plant" />
+            </h1>
             <div className="filters-container">
                 <div>
 
