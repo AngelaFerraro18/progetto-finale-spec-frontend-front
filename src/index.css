@@ -188,6 +188,13 @@ header {
 
 }
 
+input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    accent-color: #e5f9e0;
+    cursor: pointer;
+}
+
 /* filter-input  */
 
 .filter-input {
@@ -222,6 +229,7 @@ footer {
     background-color: #344e41;
     border-radius: 50%;
 }
+
 
 
 
