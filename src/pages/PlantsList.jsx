@@ -168,7 +168,11 @@ function PlantsList() {
                         />
 
                     </li>
-                )) : <p>Non è stato trovato un elemento corrispondente.</p>}
+                )) :
+                    <div className="empty-list">
+                        <p>Non è stato trovato un elemento corrispondente.</p>
+                        <img src="/icons/plant-search.png" alt="plant-search" />
+                    </div>}
             </ul>
         </>
     )
