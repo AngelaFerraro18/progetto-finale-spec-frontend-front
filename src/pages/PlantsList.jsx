@@ -113,8 +113,8 @@ function PlantsList() {
                 <img src="/icons/plant.png" alt="plant" />
             </h1>
             <div className="filters-container">
-                <div>
 
+                <div className="sort-container">
                     {/* campo per la ricerca tramite title  */}
                     <input className="filter-input" type="text"
                         placeholder="Cerca per nome..."
@@ -140,13 +140,19 @@ function PlantsList() {
 
 
                 <div>
-                    <span>Ordina per: </span>
-                    {/* bottone per ordinare la lista in ordine alfabetico e viceversa per title*/}
-                    <button className="btn-sort-items" onClick={() => handleSort('title')}>Titolo: ({sortField === 'title' ? (sortedList ? 'A - z' : 'Z - a') : 'A - z'})</button>
+                    <p>Ordina per: </p>
 
-                    {/* bottone per ordinare la lista in ordine alfabetico e viceversa per category*/}
-                    <button className="btn-sort-items" onClick={() => handleSort('category')}>Categoria: ({sortField === 'category' ? (sortedList ? 'A - z' : 'Z - a') : 'A - z'})</button>
+                    <div className="sort-btn-container">
+                        {/* bottone per ordinare la lista in ordine alfabetico e viceversa per title*/}
+                        <button className="btn-sort-items display-flex-leaves-btn" onClick={() => handleSort('title')}>
+                            Titolo: {sortField === 'title' ? (sortedList ? (<img className="leaf-sort" src="/icons/leaf-up.png" alt="leaf-up" />) : (<img className="leaf-sort" src="/icons/leaf-down.png" alt="leaf-down" />)) : (<img className="leaf-sort" src="/icons/leaf-up.png" alt="leaf-up" />)}</button>
+
+                        {/* bottone per ordinare la lista in ordine alfabetico e viceversa per category*/}
+                        <button className="btn-sort-items display-flex-leaves-btn" onClick={() => handleSort('category')}>
+                            Categoria: {sortField === 'category' ? (sortedList ? (<img className="leaf-sort" src="/icons/leaf-up.png" alt="leaf-up" />) : (<img className="leaf-sort" src="/icons/leaf-down.png" alt="leaf-down" />)) : (<img className="leaf-sort" src="/icons/leaf-up.png" alt="leaf-up" />)}</button>
+                    </div>
                 </div>
+
             </div>
 
             <ul className="plant-list-display">

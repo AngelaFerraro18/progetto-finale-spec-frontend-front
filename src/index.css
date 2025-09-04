@@ -151,10 +151,29 @@ header .navs-container a>span {
     margin-bottom: 40px;
 }
 
+.sort-container input {
+    margin-bottom: 5px;
+    width: 150px;
+}
+
+.sort-container button {
+    display: block;
+}
+
+.leaf-sort {
+    width: 30px;
+}
+
+.sort-btn-container {
+    display: flex;
+    gap: 5px;
+}
+
 .plant-list-display {
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
+    margin-bottom: 50px;
 }
 
 .plant-list-el {
@@ -295,6 +314,11 @@ footer {
     cursor: pointer;
 }
 
+.display-flex-leaves-btn {
+    display: flex;
+    align-items: center;
+}
+
 .margin-bottom {
     margin-bottom: 50px;
 }
@@ -426,6 +450,15 @@ footer {
     }
 
     header .navs-container a>span {
+        display: inline;
+    }
+
+    .sort-container input {
+
+        width: 180px;
+    }
+
+    .sort-container button {
         display: inline;
     }
 }
