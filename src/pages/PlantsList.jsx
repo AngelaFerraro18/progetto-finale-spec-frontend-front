@@ -26,6 +26,9 @@ function PlantsList() {
     //gestione dei preferiti
     const { favorites, toggleFavorite } = useFavorites();
 
+    //variabile di stato per la gestione del caricamento(loader)
+    const [loading, setLoading] = useState(false);
+
 
     const navigate = useNavigate();
 
@@ -33,6 +36,8 @@ function PlantsList() {
     const plantsFetch = useCallback(async (search) => {
 
         try {
+            //imposto il loading a true
+            setLoading(true);
 
             //definisco le variabili per la ricerca tramite search(che poi sarà plantTitle) e categoria
             const queryTitle = search ? `search=${search.toLowerCase()}` : '';
@@ -53,8 +58,14 @@ function PlantsList() {
             console.log(dataPlants);
             setList(dataPlants);
 
+            //imposto una durata del loading 
+            setTimeout(() => {
+                setLoading(false);
+            }, 400);
+
         } catch (error) {
             console.error('Errore nel recuperare i dati del fetch', error);
+            setLoading(false);
         }
     }, [category]);
 
@@ -74,6 +85,7 @@ function PlantsList() {
 
     //con useEffect applico il tutto per il filtro ricerca
     useEffect(() => {
+        setLoading(true);
         debouncedFetch(plantTitle);
     }, [plantTitle, debouncedFetch]);
 
@@ -156,23 +168,30 @@ function PlantsList() {
             </div>
 
             <ul className="plant-list-display">
-                {list.length > 0 ? (list.map(plant =>
-                    <li className="plant-list-el" key={plant.id}>
-                        <PlantCard
-                            data={plant}
-                            onSelect={handleSelect}
-                            isSelected={selectedPlants.some(p => p.id === plant.id)}
-                            isFavorite={favorites.some(p => p.id === plant.id)}
-                            onToggleFavorite={toggleFavorite}
-                            showSelect={true}
-                        />
+                {loading
+                    ? (
+                        <div className="loader-container">
+                            <p>Caricamento in corso...</p>
+                            <img src="/icons/leaves-round.png" alt="leaves-round" />
+                        </div>
+                    )
+                    : list.length > 0 ? (list.map(plant =>
+                        <li className="plant-list-el" key={plant.id}>
+                            <PlantCard
+                                data={plant}
+                                onSelect={handleSelect}
+                                isSelected={selectedPlants.some(p => p.id === plant.id)}
+                                isFavorite={favorites.some(p => p.id === plant.id)}
+                                onToggleFavorite={toggleFavorite}
+                                showSelect={true}
+                            />
 
-                    </li>
-                )) :
-                    <div className="empty-list">
-                        <p>Non è stato trovato un elemento corrispondente.</p>
-                        <img src="/icons/plant-search.png" alt="plant-search" />
-                    </div>}
+                        </li>
+                    )) :
+                        (<div className="empty-list">
+                            <p>Non è stato trovato un elemento corrispondente.</p>
+                            <img src="/icons/plant-search.png" alt="plant-search" />
+                        </div>)}
             </ul>
         </>
     )
