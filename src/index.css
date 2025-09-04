@@ -52,8 +52,12 @@ h4 {
 
 header {
     padding: 10px 0;
-    background-color: #588157;
-    margin-bottom: 50px;
+    background-color: #588157f6;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
 }
 
 .logo-header {
@@ -87,14 +91,6 @@ header {
     position: relative;
 }
 
-/* .favorites-num {
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(50%, -50%);
-    color: #fff;
-
-} */
 
 .favorites-num {
     position: absolute;
@@ -123,6 +119,10 @@ header {
     width: 100%;
     margin: 0 auto;
     padding: 0 15px;
+}
+
+.margin-top {
+    margin-top: 230px;
 }
 
 
