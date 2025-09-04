@@ -60,6 +60,10 @@ header {
     z-index: 10;
 }
 
+header .navs-container a>span {
+    display: none;
+}
+
 .logo-header {
     width: 120px;
 }
@@ -419,6 +423,10 @@ footer {
     .compare-list-container.four-compare-items>div {
         width: calc((100% - 10px) / 2);
         max-width: 350px;
+    }
+
+    header .navs-container a>span {
+        display: inline;
     }
 }
 
