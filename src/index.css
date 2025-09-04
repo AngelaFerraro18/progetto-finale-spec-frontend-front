@@ -271,27 +271,6 @@ input[type="checkbox"] {
 }
 
 
-/* compare list  */
-
-/* .compare-list-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px 10px;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
-}
-
-.compare-list-container>div {
-    margin-bottom: 0;
-    width: calc((100% - 20px) / 3);
-}
-
-.compare-list-container.four-compare-items>div {
-    width: calc((100% - 10px) / 2);
-    max-width: 350px;
-} */
-
-
 /* footer  */
 
 footer {
@@ -455,24 +434,3 @@ footer {
         width: calc((100% - 20px) / 3);
     }
 }
-
-
-
-/* 
-.compare-list-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px 10px;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
-}
-
-.compare-list-container>div {
-    margin-bottom: 0;
-    width: calc((100% - 20px) / 3);
-}
-
-.compare-list-container.four-compare-items>div {
-    width: calc((100% - 10px) / 2);
-    max-width: 350px;
-} */
