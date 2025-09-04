@@ -34,15 +34,21 @@ function PlantDetail() {
 
 
     return (
-        <div className="card-detail-container">
-            <div>
-                <PlantCardDetail data={plant}
-                    isFavorite={favorites.some(p => p.id === plant.id)}
-                    onToggleFavorite={toggleFavorite}
-                />
-                <button className="btn-sort-items" onClick={() => navigate(-1)}>Torna indietro</button>
+
+        <div>
+            <h2 className="plant-list-title">Scopri di più su questa pianta!  <img src="/icons/discover.png" alt="discover" /></h2>
+
+            <div className="card-detail-container">
+                <div>
+                    <PlantCardDetail data={plant}
+                        isFavorite={favorites.some(p => p.id === plant.id)}
+                        onToggleFavorite={toggleFavorite}
+                    />
+                    <button className="btn-sort-items margin-bottom" onClick={() => navigate(-1)}>Torna indietro</button>
+                </div>
             </div>
         </div>
+
     )
 }
 

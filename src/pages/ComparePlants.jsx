@@ -50,14 +50,22 @@ function ComparePlants() {
 
     return (
         <div>
-            <h2>Confronta le piante</h2>
-            {plants.length > 0 ? plants.map((p, index) => <PlantCardDetail key={p.id ?? index}
-                data={p}
-                isFavorite={favorites.some(fav => p.id === fav.id)}
-                onToggleFavorite={toggleFavorite}
-            />) : <p>Comparatore vuoto!</p>}
-            <button onClick={() => navigate(-1)}>Torna indietro</button>
+            <h2 className="plant-list-title">Confronta le piante! <img src="/icons/compare.png" alt="compare" /></h2>
+
+
+            <div className={`compare-list-container ${plants.length === 4 ? 'four-compare-items' : ''}`}>
+
+                {plants.length > 0 ? plants.map((p, index) => <PlantCardDetail key={p.id ?? index}
+                    data={p}
+                    isFavorite={favorites.some(fav => p.id === fav.id)}
+                    onToggleFavorite={toggleFavorite}
+                />) : <p>Comparatore vuoto!</p>}
+
+            </div>
+
+            <button className="btn-sort-items margin-bottom" onClick={() => navigate(-1)}>Torna indietro</button>
         </div>
+
     )
 }
 

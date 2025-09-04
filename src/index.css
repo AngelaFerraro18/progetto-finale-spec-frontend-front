@@ -200,7 +200,7 @@ input[type="checkbox"] {
 
 .detail-card {
     position: relative;
-    width: 320px;
+    width: 400px;
     padding: 20px;
     border-radius: 10px;
     background-color: #bdcaa5;
@@ -271,6 +271,27 @@ input[type="checkbox"] {
 }
 
 
+/* compare list  */
+
+/* .compare-list-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px 10px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.compare-list-container>div {
+    margin-bottom: 0;
+    width: calc((100% - 20px) / 3);
+}
+
+.compare-list-container.four-compare-items>div {
+    width: calc((100% - 10px) / 2);
+    max-width: 350px;
+} */
+
+
 /* footer  */
 
 footer {
@@ -289,6 +310,10 @@ footer {
     background-color: #588157;
     color: #e9f5db;
     cursor: pointer;
+}
+
+.margin-bottom {
+    margin-bottom: 50px;
 }
 
 .compare-num {
@@ -379,12 +404,42 @@ footer {
     .plant-list-el {
         width: calc((100% - 15px) / 2);
     }
+
+    .compare-list-container {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .compare-list-container>div {
+        margin-bottom: 0;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
 }
 
 
 @media (min-width: 768px) {
     .plant-list-el {
         width: calc((100% - 30px) / 3);
+    }
+
+    .compare-list-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px 10px;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+    }
+
+    .compare-list-container>div {
+        margin: 0;
+        margin-bottom: 0;
+        width: calc((100% - 10px) / 2);
+    }
+
+    .compare-list-container.four-compare-items>div {
+        width: calc((100% - 10px) / 2);
+        max-width: 350px;
     }
 }
 
@@ -393,4 +448,31 @@ footer {
     .plant-list-el {
         width: calc((100% - 45px) / 4);
     }
+
+    .compare-list-container>div {
+        margin: 0;
+        margin-bottom: 0;
+        width: calc((100% - 20px) / 3);
+    }
 }
+
+
+
+/* 
+.compare-list-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px 10px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.compare-list-container>div {
+    margin-bottom: 0;
+    width: calc((100% - 20px) / 3);
+}
+
+.compare-list-container.four-compare-items>div {
+    width: calc((100% - 10px) / 2);
+    max-width: 350px;
+} */
