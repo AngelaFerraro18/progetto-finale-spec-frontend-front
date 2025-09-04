@@ -10,7 +10,7 @@ function DefaultLayout() {
                 <Outlet />
             </main>
             <footer>
-                Sono il footer
+                <p>Ogni foglia conta: trova la tua pianta perfetta!</p>
             </footer>
         </>
     )
