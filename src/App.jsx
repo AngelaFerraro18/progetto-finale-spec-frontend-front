@@ -5,6 +5,7 @@ import PlantDetail from "./pages/PlantDetail"
 import ComparePlants from "./pages/ComparePlants"
 import { FavouritesProvider } from "./context/FavouritesContext"
 import FavoritesPlants from "./pages/FavoritesPlants"
+import NotFound from "./pages/NotFound"
 
 function App() {
 
@@ -23,7 +24,7 @@ function App() {
             </Route>
 
             {/* route per la pagina Not Found  */}
-            <Route path="*" element={<p>Not Found</p>} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
       </FavouritesProvider>
