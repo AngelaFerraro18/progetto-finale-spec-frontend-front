@@ -32,7 +32,7 @@ function PlantCardDetail({ data, onToggleFavorite, isFavorite, }) {
                     </div>
                 </li>
                 <li className="toxicity-container"><strong>E' una pianta tossica?:</strong> {toxicity
-                    ? <div className="toxicity-image-container">Sì <img className="toxicity-icons" src="/icons/skull.png" alt="death-plant" /></div>
+                    ? <div className="toxicity-image-container">Sì <img className="toxicity-icons" src="/icons/poisonous.png" alt="death-plant" /></div>
                     : <div className="toxicity-image-container">No <img className="toxicity-icons" src="/icons/nontoxic.png" alt="non-toxic-plant" /></div>}</li>
             </ul>
 
