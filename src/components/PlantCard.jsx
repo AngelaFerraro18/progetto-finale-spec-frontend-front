@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 
 
@@ -38,4 +39,4 @@ function PlantCard({ data, isSelected, onSelect, onToggleFavorite, isFavorite, s
     )
 }
 
-export default PlantCard;
+export default React.memo(PlantCard);

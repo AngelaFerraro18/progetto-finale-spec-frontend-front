@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useMemo } from "react";
 import PlantCard from "../components/PlantCard";
 import { useNavigate } from "react-router-dom";
 import { useFavorites } from "../context/FavouritesContext";
@@ -91,17 +91,23 @@ function PlantsList() {
     }, [plantTitle, debouncedFetch]);
 
 
-    //funzione per ordinare la lista in ordine alfabetico
+    //applico useMemo alla lista ordinata
+    const sortedPlants = useMemo(() => {
+
+        return [...list].sort((a, b) => sortedList
+            ? a[sortField].localeCompare(b[sortField])
+            : b[sortField].localeCompare(a[sortField]));
+
+    }, [list, sortField, sortedList]);
+
+    //funzione per cambiare l'ordine di visualizzazione
     function handleSort(field) {
-        const sortedPlants = [...list].sort((a, b) => sortedList ? a[field].localeCompare(b[field]) : b[field].localeCompare(a[field]));
-
-        setList(sortedPlants);
-        setSortedList(!sortedList);
         setSortField(field);
-    }
+        setSortedList(prev => !prev)
+    };
 
-    //funzione per la selezione di due piante
-    function handleSelect(plant) {
+    // funzione per la selezione di 2 o più piante, ottimizzata con useCallback
+    const handleSelect = useCallback((plant) => {
         setSelectedPlants(prev => {
             if (prev.find(p => p.id === plant.id)) {
                 //se già esiste viene rimossa
@@ -110,7 +116,7 @@ function PlantsList() {
             //altrimenti aggiungo le piante
             return [...prev, plant];
         })
-    };
+    }, []);
 
     //funzione per passare alla pagina di comparazione con il btn
     function handleCompare() {
@@ -175,7 +181,7 @@ function PlantsList() {
                         <img src="/icons/leaves-round.png" alt="leaves-round" />
                     </div>
                 ) : (
-                    list.length > 0 ? (list.map(plant =>
+                    list.length > 0 ? (sortedPlants.map(plant =>
                     (<li className="plant-list-el" key={plant.id}>
                         <PlantCard
                             data={plant}
