@@ -184,6 +184,7 @@ header .navs-container a>span {
     position: relative;
     border: 2px solid #344e41;
     width: calc((100% - 15px) / 2);
+    transition: background-color 0.5s ease, transform 0.2s ease;
 }
 
 /* plant-card */
@@ -331,6 +332,12 @@ input[type="checkbox"] {
     padding: 5px;
     border: 1.5px solid #344e41;
     border-radius: 10px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.1s ease;
+}
+
+select {
+    cursor: pointer;
 }
 
 
@@ -359,6 +366,7 @@ footer p {
     background-color: #588157;
     color: #e9f5db;
     cursor: pointer;
+    transition: background-color 0.2s ease
 }
 
 .display-flex-leaves-btn {
@@ -431,8 +439,28 @@ footer p {
 }
 
 
+/* hover  */
+
+/* card  */
+.plant-list-el:hover {
+    background-color: #91cb3e;
+    border-color: #588157;
+    transform: scale(1.05);
+}
 
 
+/* input focus  */
+.filter-input:focus {
+    border-color: #588157;
+    box-shadow: 0 0 5px #344e41;
+}
+
+
+/* buttons */
+.btn-sort-items:hover {
+    background-color: #7aa354;
+    box-shadow: 0 0 5px #344e41;
+}
 
 
 
