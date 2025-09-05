@@ -1,3 +1,5 @@
+import React from "react";
+
 function PlantCardDetail({ data, onToggleFavorite, isFavorite, }) {
 
     const { title, image, category, description, sunlight, watering, careLevel, scientificName, temperature, humidity, fertilizer, growthRate, maxHeight, toxicity } = data;
@@ -46,4 +48,4 @@ function PlantCardDetail({ data, onToggleFavorite, isFavorite, }) {
     )
 }
 
-export default PlantCardDetail;
+export default React.memo(PlantCardDetail);
