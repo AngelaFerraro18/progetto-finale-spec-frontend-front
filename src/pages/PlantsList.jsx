@@ -59,6 +59,13 @@ function PlantsList() {
             console.log(dataPlants);
             setList(dataPlants);
 
+            //ordino la lista in ordine cresc
+            const sortedListInit = [...dataPlants].sort((a, b) => a.title.localeCompare(b.title));
+
+            setList(sortedListInit);
+            setSortField('title');
+            setSortedList(true);
+
             // imposto una durata del loading 
             setTimeout(() => {
                 setLoading(false);
@@ -91,25 +98,45 @@ function PlantsList() {
     }, [plantTitle, debouncedFetch]);
 
 
-    //applico useMemo alla lista ordinata
-    const sortedPlants = useMemo(() => {
-
-        return [...list].sort((a, b) => sortedList
-            ? a[sortField].localeCompare(b[sortField])
-            : b[sortField].localeCompare(a[sortField]));
-
-    }, [list, sortField, sortedList]);
-
-    //funzione per cambiare l'ordine di visualizzazione
-    function handleSort(field) {
-
-        if (sortField === field) {
-            setSortedList(prev => !prev);
-
-        } else {
-            setSortField(field);
+    //ottimizzazione delle icone-foglia con useMemo
+    const titleIcon = useMemo(() => {
+        if (sortField === 'title') {
+            return sortedList ? '/icons/leaf-up.png' : '/icons/leaf-down.png';
         }
-    };
+        return '/icons/leaf-up.png';
+    }, [sortField, sortedList]);
+
+    const categoryIcon = useMemo(() => {
+        if (sortField === 'category') {
+            return sortedList ? '/icons/leaf-up.png' : '/icons/leaf-down.png';
+        }
+        return '/icons/leaf-up.png';
+    }, [sortField, sortedList]);
+
+
+    //funzione per ordinare la lista in ordine alfabetico
+    function handleSort(field) {
+        let ascending;
+
+        if (field === sortField) {
+            //campo uguale, allora inverto
+            ascending = !sortedList;
+        } else {
+            // campo nuovo, allora ricomincio in ordine asc
+            ascending = true;
+        }
+
+        const sortedPlants = [...list].sort((a, b) => {
+            const valA = (a[field] ?? '').toString().toLowerCase();
+            const valB = (b[field] ?? '').toString().toLowerCase();
+            return ascending ? valA.localeCompare(valB) : valB.localeCompare(valA);
+        });
+
+        setList(sortedPlants);
+        setSortField(field);
+        setSortedList(ascending);
+    }
+
 
     // funzione per la selezione di 2 o più piante, ottimizzata con useCallback
     const handleSelect = useCallback((plant) => {
@@ -169,11 +196,11 @@ function PlantsList() {
                     <div className="sort-btn-container">
                         {/* bottone per ordinare la lista in ordine alfabetico e viceversa per title*/}
                         <button className="btn-sort-items display-flex-leaves-btn" onClick={() => handleSort('title')}>
-                            Titolo: {sortField === 'title' ? (sortedList ? (<img className="leaf-sort" src="/icons/leaf-up.png" alt="leaf-up" />) : (<img className="leaf-sort" src="/icons/leaf-down.png" alt="leaf-down" />)) : (<img className="leaf-sort" src="/icons/leaf-up.png" alt="leaf-up" />)}</button>
+                            Titolo: <img className="leaf-sort" src={titleIcon} alt="leaf" /></button>
 
                         {/* bottone per ordinare la lista in ordine alfabetico e viceversa per category*/}
                         <button className="btn-sort-items display-flex-leaves-btn" onClick={() => handleSort('category')}>
-                            Categoria: {sortField === 'category' ? (sortedList ? (<img className="leaf-sort" src="/icons/leaf-up.png" alt="leaf-up" />) : (<img className="leaf-sort" src="/icons/leaf-down.png" alt="leaf-down" />)) : (<img className="leaf-sort" src="/icons/leaf-up.png" alt="leaf-up" />)}</button>
+                            Categoria: <img className="leaf-sort" src={categoryIcon} alt="leaf" /></button>
                     </div>
                 </div>
 
@@ -186,7 +213,7 @@ function PlantsList() {
                         <img src="/icons/leaves-round.png" alt="leaves-round" />
                     </div>
                 ) : (
-                    list.length > 0 ? (sortedPlants.map(plant =>
+                    list.length > 0 ? (list.map(plant =>
                     (<li className="plant-list-el" key={plant.id}>
                         <PlantCard
                             data={plant}
