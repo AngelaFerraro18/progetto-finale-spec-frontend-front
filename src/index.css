@@ -85,6 +85,8 @@ header .navs-container a>span {
     display: flex;
     align-items: center;
     gap: 5px;
+    transition: transform 0.4s ease;
+
 }
 
 .navs-container a img {
@@ -463,6 +465,12 @@ footer p {
     box-shadow: 0 0 5px #344e41;
 }
 
+/* home and preferiti  */
+
+.navs-container a:hover {
+    transform: scale(1.10);
+
+}
 
 
 
