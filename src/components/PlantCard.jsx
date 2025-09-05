@@ -30,7 +30,7 @@ function PlantCard({ data, isSelected, onSelect, onToggleFavorite, isFavorite, s
 
 
             {/* pulsantino per aggiungere l'elemento ai preferiti */}
-            <img className="favorite-img" src={isFavorite ? '/icons/sprout.png' : '/icons/sprout-line.png'}
+            <img className="favorite-img" src={isFavorite ? '/icons/sprout.png' : '/icons/sprout-line-white.png'}
                 alt={isFavorite ? 'Rimuovi dai preferiti' : 'Aggiungi ai preferiti'}
                 onClick={() => onToggleFavorite(data)}
             />
