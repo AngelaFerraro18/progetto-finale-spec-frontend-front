@@ -102,8 +102,13 @@ function PlantsList() {
 
     //funzione per cambiare l'ordine di visualizzazione
     function handleSort(field) {
-        setSortField(field);
-        setSortedList(prev => !prev)
+
+        if (sortField === field) {
+            setSortedList(prev => !prev);
+
+        } else {
+            setSortField(field);
+        }
     };
 
     // funzione per la selezione di 2 o più piante, ottimizzata con useCallback
