@@ -6,6 +6,7 @@ import ComparePlants from "./pages/ComparePlants"
 import { FavouritesProvider } from "./context/FavouritesContext"
 import FavoritesPlants from "./pages/FavoritesPlants"
 import NotFound from "./pages/NotFound"
+import NotFoundLayout from "./layouts/NotFoundLayout"
 
 function App() {
 
@@ -24,7 +25,10 @@ function App() {
             </Route>
 
             {/* route per la pagina Not Found  */}
-            <Route path="*" element={<NotFound />} />
+            <Route element={<NotFoundLayout />}>
+              <Route path="*" element={<NotFound />} />
+            </Route>
+
           </Routes>
         </BrowserRouter>
       </FavouritesProvider>

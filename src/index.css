@@ -405,6 +405,7 @@ footer p {
 .not-found-container {
     background-color: #e9f5db;
     margin: 200px 0;
+    margin-bottom: 50px;
 }
 
 .not-found-img {
@@ -555,7 +556,7 @@ footer p {
     }
 
     .not-found-img {
-        width: 650px;
+        width: 550px;
     }
 
     .home-found {
