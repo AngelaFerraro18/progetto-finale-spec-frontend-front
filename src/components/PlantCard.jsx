@@ -6,9 +6,12 @@ function PlantCard({ data, isSelected, onSelect, onToggleFavorite, isFavorite, s
 
     const { id, title, category } = data;
 
+    //creazione slug per miglior leggibilità url
+    const slug = title.toLowerCase().replace(/\s+/g, "-");
+
     return (
         <>
-            <Link to={`/plant/${id}`}>
+            <Link to={`/plant/${slug}-${id}`}>
                 <h4 className="card-title">{title}</h4>
                 <p className="card-category">Categoria: <em>{category}</em></p>
             </Link>

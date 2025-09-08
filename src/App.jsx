@@ -19,7 +19,7 @@ function App() {
             {/* pagine principali dell'App */}
             <Route element={<DefaultLayout />}>
               <Route path="/" element={<PlantsList />} />
-              <Route path="/plant/:id" element={<PlantDetail />} />
+              <Route path="/plant/:slugId" element={<PlantDetail />} />
               <Route path="/preferiti" element={<FavoritesPlants />} />
               <Route path="/confronta-le-piante" element={<ComparePlants />} />
             </Route>
