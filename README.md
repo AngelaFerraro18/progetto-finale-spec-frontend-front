@@ -57,7 +57,7 @@ npm run dev
 
 ### Video completo su Google Drive
 
-https://drive.google.com/file/d/1Rm8yCorm4Bn8ZtM_HxbHDiH3mexF_IJO/view?usp=sharing
+https://drive.google.com/file/d/1gn6p_KkYDlKPYiByKacnwuHh_x7CRWab/view?usp=sharing
 
 ### Visualizzazione tablet
 
