@@ -53,7 +53,7 @@ npm run dev
 
 ## Anteprima del progetto (visualizzazione desktop)
 
-![Anteprima desktop di Leaf Love](assets/anteprima-progetto-finale.gif)
+![Anteprima desktop di Leaf Love](src/assets/anteprima-progetto-finale.gif)
 
 ### Video completo su Google Drive
 
@@ -61,15 +61,15 @@ https://drive.google.com/file/d/1gn6p_KkYDlKPYiByKacnwuHh_x7CRWab/view?usp=shari
 
 ### Visualizzazione tablet
 
-![Anteprima tablet di Leaf Love](assets/responsive-tablet-progetto-finale.gif)
+![Anteprima tablet di Leaf Love](src/assets/responsive-tablet-progetto-finale.gif)
 
 ### Visualizzazione smartphone
 
-![Anteprima smartphone di Leaf Love](assets/responsive-smartphone-progetto-finale.gif)
+![Anteprima smartphone di Leaf Love](src/assets/responsive-smartphone-progetto-finale.gif)
 
 ### Pagina Not Found
 
-![Pagina Not Found di Leaf Love](assets/pagina-not-found-progetto-finale.jpg)
+![Pagina Not Found di Leaf Love](src/assets/pagina-not-found-progetto-finale.jpg)
 
 ## Autore
 
