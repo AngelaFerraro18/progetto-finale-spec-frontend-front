@@ -53,7 +53,7 @@ npm run dev
 
 ## Anteprima del progetto (visualizzazione desktop)
 
-![Anteprima desktop di Leaf Love](assets/progetto-finale-spec-leaf-love.gif)
+![Anteprima desktop di Leaf Love](assets/anteprima-progetto-finale.gif)
 
 ### Visualizzazione tablet
 
