@@ -51,6 +51,22 @@ npm run dev
 ```
 
 
+## Anteprima del progetto (visualizzazione desktop)
+
+![Anteprima desktop di Leaf Love](assets/progetto-finale-spec-leaf-love.gif)
+
+### Visualizzazione tablet
+
+![Anteprima tablet di Leaf Love](assets/responsive-tablet-progetto-finale.gif)
+
+### Visualizzazione smartphone
+
+![Anteprima smartphone di Leaf Love](assets/responsive-smartphone-progetto-finale.gif)
+
+### Pagina Not Found
+
+![Pagina Not Found di Leaf Love](assets/pagina-not-found-progetto-finale.jpg)
+
 ## Autore
 
 Angela Ferraro - https://github.com/AngelaFerraro18
