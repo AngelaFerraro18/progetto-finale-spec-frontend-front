@@ -55,6 +55,10 @@ npm run dev
 
 ![Anteprima desktop di Leaf Love](assets/anteprima-progetto-finale.gif)
 
+### Video completo su Google Drive
+
+https://drive.google.com/file/d/1Rm8yCorm4Bn8ZtM_HxbHDiH3mexF_IJO/view?usp=sharing
+
 ### Visualizzazione tablet
 
 ![Anteprima tablet di Leaf Love](assets/responsive-tablet-progetto-finale.gif)
